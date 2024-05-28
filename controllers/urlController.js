@@ -1,10 +1,8 @@
-const URL = require("../model/urlModel");
+const URL = require('../model/urlModel');
 const { validationResult } = require('express-validator');
 
 const shortenUrl = async (req, res) => {
     const { nanoid } = await import('nanoid');
-
-    await body('originalUrl').isURL().trim().escape().run(req);
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
